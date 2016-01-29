@@ -1,0 +1,20 @@
+group 'downer'
+
+apply plugin: 'java'
+
+
+
+repositories {
+    mavenCentral()
+    flatDir {
+        dirs 'lib'
+    }
+}
+
+
+jar {
+    from {
+        ["plugin.yml","config.yml"]
+    }
+    baseName = 'downer'
+}
