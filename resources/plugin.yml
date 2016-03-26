@@ -1,0 +1,5 @@
+name: Downer
+version: 1.0
+author: The BitQuest Dev Team
+main: com.bitquest.downer
+description: Cancels some events with LOWEST priority. Acts when other plugins fail.

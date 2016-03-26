@@ -9,6 +9,7 @@ public class Downer extends JavaPlugin {
     @Override
     public void onEnable() {
         // TODO Insert logic to be performed when the plugin is enabled
+        System.out.println("Downer started...");
     }
 
     @Override
