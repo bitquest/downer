@@ -1,0 +1,1 @@
+{"virtualbox":{"/minecraft/plugins":{"guestpath":"/minecraft/plugins","hostpath":"/home/explodi/Projects/downer/build/libs","disabled":false,"__vagrantfile":true},"/vagrant":{"guestpath":"/vagrant","hostpath":"/home/explodi/Projects/downer","disabled":false,"__vagrantfile":true}}}

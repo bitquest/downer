@@ -1,5 +1,0 @@
-name: Downer
-version: 1.0
-author: The BitQuest Dev Team
-main: co.bitquest.downer
-description: Very simple Minecraft plugin that overrides all events in case of a plugin crash to prevent griefing
