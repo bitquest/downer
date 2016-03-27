@@ -1,4 +1,9 @@
-group 'downer'
+
+plugins {
+    id 'java' // or 'groovy' Must be explicitly applied
+}
+
+group 'bitquest'
 
 apply plugin: 'java'
 
@@ -11,12 +16,14 @@ repositories {
     }
 }
 
-
-jar {
-    from {
-        ["plugin.yml","config.yml"]
-    }
-    baseName = 'downer'
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+    compile "org.bukkit:spigot-api:1.9-R0.1-SNAPSHOT-shaded"
 }
-
-
+jar {
+    baseName = 'downer'
+    from('resources') {
+        include 'plugin.yml'
+        include 'config.yml'
+    }
+}
