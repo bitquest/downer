@@ -6,6 +6,8 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.player.PlayerLoginEvent;
+import org.bukkit.event.inventory.InventoryOpenEvent;
+import org.bukkit.event.inventory.InventoryInteractEvent;
 /**
  * Created by cristian on 3/27/16.
  */
@@ -23,5 +25,13 @@ public class EventListener implements Listener {
     void onBlockPlace(BlockPlaceEvent event) {
         event.setCancelled(true);
     }
-
+    @EventHandler(priority = EventPriority.NORMAL)
+    public void onInventoryOpen(InventoryOpenEvent event)
+    {
+        event.setCancelled(true);
+    }
+    @EventHandler(priority = EventPriority.NORMAL)
+    public void onInventoryInteract(InventoryInteractEvent event) {
+	event.setCancelled(true);
+}
 }
