@@ -25,12 +25,12 @@ public class EventListener implements Listener {
     void onBlockPlace(BlockPlaceEvent event) {
         event.setCancelled(true);
     }
-    @EventHandler(priority = EventPriority.NORMAL)
+    @EventHandler(priority = EventPriority.LOW)
     public void onInventoryOpen(InventoryOpenEvent event)
     {
         event.setCancelled(true);
     }
-    @EventHandler(priority = EventPriority.NORMAL)
+    @EventHandler(priority = EventPriority.LOW)
     public void onInventoryInteract(InventoryInteractEvent event) {
 	event.setCancelled(true);
 }
