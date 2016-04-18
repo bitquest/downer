@@ -32,6 +32,6 @@ public class EventListener implements Listener {
     }
     @EventHandler(priority = EventPriority.NORMAL)
     public void onInventoryInteract(InventoryInteractEvent event) {
-	    event.setCancelled(true);
+	event.setCancelled(true);
 }
 }
