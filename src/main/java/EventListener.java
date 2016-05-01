@@ -7,7 +7,7 @@ import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.player.PlayerLoginEvent;
 import org.bukkit.event.inventory.InventoryOpenEvent;
-import org.bukkit.event.inventory.InventoryInteractEvent;
+import org.bukkit.event.inventory.InventoryType;
 /**
  * Created by cristian on 3/27/16.
  */
@@ -26,12 +26,9 @@ public class EventListener implements Listener {
         event.setCancelled(true);
     }
     @EventHandler(priority = EventPriority.LOW)
-    public void onInventoryOpen(InventoryOpenEvent event)
-    {
-        event.setCancelled(true);
-    }
-    @EventHandler(priority = EventPriority.LOW)
-    public void onInventoryInteract(InventoryInteractEvent event) {
-	event.setCancelled(true);
-}
-}
+    public void onInventoryOpen(InventoryOpenEvent event) {
+   if (event.getInventory().getType() == InventoryType.CHEST) {
+      event.setCancelled(true);
+   }
+   }
+    
