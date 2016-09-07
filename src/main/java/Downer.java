@@ -6,16 +6,18 @@ import org.bukkit.plugin.java.JavaPlugin;
  * Created by cristian on 1/29/16.
  */
 public class Downer extends JavaPlugin {
+    public boolean  pluginenabled;
     @Override
     public void onEnable() {
-        // TODO Insert logic to be performed when the plugin is enabled
+        pluginenabled = true;
         System.out.println("Downer started...");
         getServer().getPluginManager().registerEvents(new EventListener(), this);
     }
 
     @Override
     public void onDisable() {
-        // TODO Insert logic to be performed when the plugin is disabled
+        pluginenabled = false;
+        System.out.println("Downer disabled...");
     }
 
 }
