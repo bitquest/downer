@@ -1,5 +1,7 @@
 package co.bitquest.downer;
 
+import org.bukkit.Bukkit;
+import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
@@ -15,7 +17,16 @@ public class EventListener implements Listener {
     @EventHandler(priority = EventPriority.LOW)
     public void playerLogin(PlayerLoginEvent event) {
         // Some code here
-       // event.disallow(PlayerLoginEvent.Result.KICK_OTHER, "This server is under maintenance. Please come back later");
+        String message="This server is under maintenance. Please come back later";
+       event.disallow(PlayerLoginEvent.Result.KICK_OTHER, message);
+
+
+
+        for (Player currentPlayer : Bukkit.getOnlinePlayers()) {
+            currentPlayer.kickPlayer(message);
+        }
+
+        Bukkit.shutdown();
     }
     @EventHandler(priority = EventPriority.LOW)
     void onBlockBreak(BlockBreakEvent event) {
