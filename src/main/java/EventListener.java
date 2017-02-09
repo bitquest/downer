@@ -16,33 +16,56 @@ import org.bukkit.event.inventory.InventoryInteractEvent;
 public class EventListener implements Listener {
     @EventHandler(priority = EventPriority.LOW)
     public void playerLogin(PlayerLoginEvent event) {
-        // Some code here
-        String message="This server is under maintenance. Please come back later";
-       event.disallow(PlayerLoginEvent.Result.KICK_OTHER, message);
+        if(!Bukkit.getServer().getPluginManager().getPlugin("BitQuest").isEnabled())
+        {
+            // Some code here
+            String message="This server is under maintenance. Please come back later";
+            event.disallow(PlayerLoginEvent.Result.KICK_OTHER, message);
 
 
 
-        for (Player currentPlayer : Bukkit.getOnlinePlayers()) {
-            currentPlayer.kickPlayer(message);
+            for (Player currentPlayer : Bukkit.getOnlinePlayers()) {
+                currentPlayer.kickPlayer(message);
+            }
+
+            Bukkit.shutdown();
+        } else {
+            System.out.println("[downer] detected BitQuest running");
         }
 
-        Bukkit.shutdown();
     }
     @EventHandler(priority = EventPriority.LOW)
     void onBlockBreak(BlockBreakEvent event) {
-       event.setCancelled(true);
+
+        if(!Bukkit.getServer().getPluginManager().getPlugin("BitQuest").isEnabled())
+        {
+            event.setCancelled(true);
+            Bukkit.shutdown();
+        }
     }
     @EventHandler(priority = EventPriority.LOW)
     void onBlockPlace(BlockPlaceEvent event) {
-        event.setCancelled(true);
+        if(!Bukkit.getServer().getPluginManager().getPlugin("BitQuest").isEnabled())
+        {
+            event.setCancelled(true);
+            Bukkit.shutdown();
+        }
     }
     @EventHandler(priority = EventPriority.LOW)
     public void onInventoryOpen(InventoryOpenEvent event)
     {
-        event.setCancelled(true);
+        if(!Bukkit.getServer().getPluginManager().getPlugin("BitQuest").isEnabled())
+        {
+            event.setCancelled(true);
+            Bukkit.shutdown();
+        }
     }
     @EventHandler(priority = EventPriority.LOW)
     public void onInventoryInteract(InventoryInteractEvent event) {
-	event.setCancelled(true);
+        if(!Bukkit.getServer().getPluginManager().getPlugin("BitQuest").isEnabled())
+        {
+            event.setCancelled(true);
+            Bukkit.shutdown();
+        }
 }
 }
